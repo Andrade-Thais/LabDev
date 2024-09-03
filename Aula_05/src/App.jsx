@@ -1,34 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import ShowUserName from './components/ShowUserName';
+import UserDetails from './components/UserDetails';
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  const users = [
+    {id: 1001, name: "Thais", idade: 29, profissao: "Product Owner"},
+    {id: 1002, name: "Henrique", idade: 17, profissao: "DevFront"},
+    {id: 1003, name: "Ricardo", idade: 32, profissao: "Chefe"},
+    {id: 1004, name: "Wanderson", idade: 35, profissao: "DevBack"}
+  ]
+
+  
+  
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='App'>
+      {/* <ShowUserName name="Thais"/> */}
+      {users.map((user) =>(
+        <UserDetails key={user.id} nome={user.name} idade={user.idade} profissao={user.profissao}/>
+      ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
   )
 }
 
